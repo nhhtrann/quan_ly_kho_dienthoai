@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập vào Hệ thống</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <div class="login-container">
+
+        <div class="login-visual">
+            <img src="images/hinh1.jpg" alt="Hình minh họa đăng nhập">
+        </div>
+
+        <div class="login-form">
+            <h1>ĐĂNG NHẬP VÀO HỆ THỐNG</h1>
+
+            <form id="loginForm"> <div class="form-group">
+                    <label for="username">Tên đăng nhập</label>
+                    <input type="text" id="username" name="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                
+                <div class="forgot-password">
+                    <a href="#">Quên mật khẩu</a>
+                </div>
+
+                <button type="submit" class="login-button">ĐĂNG NHẬP</button>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        // Lấy form đăng nhập
+        const loginForm = document.getElementById('loginForm');
+
+        // Lắng nghe sự kiện submit của form
+        loginForm.addEventListener('submit', function(event) {
+            // Ngăn chặn hành vi submit mặc định của form (tải lại trang)
+            event.preventDefault();
+
+            // Lấy giá trị từ các trường input
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Kiểm tra thông tin đăng nhập (ví dụ đơn giản)
+            // Trong thực tế, bạn sẽ gửi thông tin này đến máy chủ để xác thực
+            if (username === 'htran' && password === '123') { // Thay đổi username/password theo ý bạn
+                alert('Đăng nhập thành công!');
+                // Chuyển hướng đến trang chủ
+                window.location.href = 'home.html'; 
+            } else {
+                alert('Tên đăng nhập hoặc mật khẩu không đúng!');
+            }
+        });
+    </script>
+</body>
+</html>

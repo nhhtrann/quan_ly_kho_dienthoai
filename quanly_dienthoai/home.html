@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống Quản lý Điện thoại</title>
+    <link rel="stylesheet" href="home_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="images/avatar.png" alt="Admin Avatar" class="avatar">
+                <span class="user-name">Huyen Tran</span>
+                <span class="user-role">Admin</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active" data-target="homepage-content"><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
+                    <li data-target="product-page-content"><a href="#"><i class="fas fa-box-open"></i> Sản phẩm</a></li>
+                    <li><a href="#" data-target="kho-content"><i class="fas fa-warehouse"></i> Khu vực kho</a></li>
+                    <li><a href="#" data-target="kiemke-content"><i class="fas fa-clipboard-list"></i> Phiếu kiểm kê</a></li>
+                    <li><a href="#" data-target="phieunhap-content"><i class="fas fa-file-invoice"></i> Phiếu nhập</a></li>
+                    <li><a href="#" data-target="phieuxuat-content"><i class="fas fa-file-export"></i> Phiếu xuất</a></li>
+                    <li><a href="#" data-target="khachhang-content"><i class="fas fa-users-cog"></i> Khách hàng</a></li>
+                    <li><a href="#" data-target="nhacungcap-content"><i class="fas fa-truck"></i> Nhà cung cấp</a></li>
+                    <li><a href="#" data-target="nhanvien-content"><i class="fas fa-users"></i> Nhân viên</a></li>
+                    <li><a href="#" data-target="taikhoan-content"><i class="fas fa-user-circle"></i> Tài khoản</a></li>
+                    <li><a href="#" data-target="phanquyent-content"><i class="fas fa-shield-alt"></i> Phân quyền</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="logout-link" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-right-circles">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </header>
+
+            <section id="homepage-content" class="content-panel active-panel">
+                <div class="dashboard-overview">
+                    <div class="overview-grid">
+                        <div class="overview-card security">
+                            <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                            <div class="text">
+                                <h3>Tính bảo mật</h3>
+                                <p>Đảm bảo thông tin của bạn luôn được bảo vệ.</p>
+                            </div>
+                        </div>
+                        <div class="overview-card accuracy">
+                            <div class="icon"><i class="fas fa-check-circle"></i></div>
+                            <div class="text">
+                                <h3>Tính chính xác</h3>
+                                <p>Cung cấp dữ liệu và thông tin chính xác.</p>
+                            </div>
+                        </div>
+                        <div class="overview-card efficiency">
+                            <div class="icon"><i class="fas fa-bolt"></i></div>
+                            <div class="text">
+                                <h3>Tính hiệu quả</h3>
+                                <p>Giúp bạn hoàn thành công việc nhanh chóng và hiệu quả.</p>
+                            </div>
+                        </div>
+                        <div class="overview-card stability">
+                            <div class="icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="text">
+                                <h3>Tính ổn định</h3>
+                                <p>Hệ thống hoạt động ổn định và đáng tin cậy.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="center-banner">
+                        <h2>HỆ THỐNG QUẢN LÝ ĐIỆN THOẠI</h2>
+                    </div>
+                </div>
+                
+                <section class="illustration-section">
+                    <div class="illustration-image">
+                        <img src="images/hinh2.png" alt="Hệ thống quản lý điện thoại">
+                    </div>
+                    <div class="illustration-background"></div>
+                </section>
+            </section>
+
+            <section id="product-page-content" class="content-panel">
+                <div class="product-header">
+                    <div class="product-actions">
+                        <button class="action-btn add-btn"><i class="fas fa-plus-circle"></i> Thêm</button>
+                        <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i> Xóa</button>
+                        <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Sửa</button>
+                        <button class="action-btn detail-btn"><i class="fas fa-info-circle"></i> Chi tiết</button>
+                        <button class="action-btn export-btn"><i class="fas fa-file-excel"></i> Export Excel</button>
+                        <button class="action-btn import-btn"><i class="fas fa-file-import"></i> Nhập Excel</button>
+                    </div>
+                    <div class="product-search">
+                        <select id="search-type">
+                            <option value="all">Tất cả</option>
+                            <option value="name">Tên sản phẩm</option>
+                            <option value="id">Mã SP</option>
+                        </select>
+                        <input type="text" placeholder="Tìm kiếm gì đi..." class="search-input">
+                        <button class="action-btn refresh-btn"><i class="fas fa-sync-alt"></i> Làm mới</button>
+                    </div>
+                </div>
+
+                <div class="product-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã SP</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Kích thước màn</th>
+                                <th>Thương hiệu</th>
+                                <th>Hệ điều hành</th>
+                                <th>Xuất xứ</th>
+                                <th>Khu vực kho</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Vivo Y72s</td>
+                                <td>1</td>
+                                <td>6.55 inch</td>
+                                <td>Apple</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>Khu vực A</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Samsung Galaxy A53 5G</td>
+                                <td>0</td>
+                                <td>6.5 inch</td>
+                                <td>Samsung</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>Khu vực B</td>
+                            </tr>
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="kho-content" class="content-panel"></section>
+            <section id="kiemke-content" class="content-panel"></section>
+            <section id="phieunhap-content" class="content-panel"></section>
+            <section id="phieuxuat-content" class="content-panel"></section>
+            <section id="khachhang-content" class="content-panel"></section>
+            <section id="nhacungcap-content" class="content-panel"></section>
+            <section id="nhanvien-content" class="content-panel"></section>
+            <section id="taikhoan-content" class="content-panel"></section>
+            <section id="phanquyent-content" class="content-panel"></section>
+
+        </main>
+    </div>
+
+    <div id="addProductModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 class="modal-title">THÊM SẢN PHẨM MỚI</h2>
+            <form id="addProductForm" class="add-product-form-simple">
+                <div class="form-group-simple">
+                    <label for="newMaSP">Mã SP:</label>
+                    <input type="text" id="newMaSP" required>
+                </div>
+                <div class="form-group-simple">
+                    <label for="newTenSP">Tên sản phẩm:</label>
+                    <input type="text" id="newTenSP" required>
+                </div>
+                <div class="form-group-simple">
+                    <label for="newSoLuong">Số lượng:</label>
+                    <input type="number" id="newSoLuong" min="0" value="1" required>
+                </div>
+                <div class="form-group-simple">
+                    <label for="newKichThuocMan">Kích thước màn:</label>
+                    <input type="text" id="newKichThuocMan">
+                </div>
+                <div class="form-group-simple">
+                    <label for="newThuongHieu">Thương hiệu:</label>
+                    <select id="newThuongHieu">
+                        <option value="">-- Chọn --</option>
+                        <option value="Apple">Apple</option>
+                        <option value="Samsung">Samsung</option>
+                        <option value="Xiaomi">Xiaomi</option>
+                        <option value="Vivo">Vivo</option>
+                        <option value="Oppo">Oppo</option>
+                        <option value="Khac">Khác</option>
+                    </select>
+                </div>
+                <div class="form-group-simple">
+                    <label for="newHeDieuHanh">Hệ điều hành:</label>
+                    <select id="newHeDieuHanh">
+                        <option value="">-- Chọn --</option>
+                        <option value="Android">Android</option>
+                        <option value="iOS">iOS</option>
+                        <option value="Khac">Khác</option>
+                    </select>
+                </div>
+                <div class="form-group-simple">
+                    <label for="newXuatXu">Xuất xứ:</label>
+                    <select id="newXuatXu">
+                        <option value="">-- Chọn --</option>
+                        <option value="Trung Quoc">Trung Quốc</option>
+                        <option value="Viet Nam">Việt Nam</option>
+                        <option value="Khac">Khác</option>
+                    </select>
+                </div>
+                <div class="form-group-simple">
+                    <label for="newKhuVucKho">Khu vực kho:</label>
+                    <select id="newKhuVucKho">
+                        <option value="">-- Chọn --</option>
+                        <option value="Khu vuc A">Khu vực A</option>
+                        <option value="Khu vuc B">Khu vực B</option>
+                        <option value="Khu vuc C">Khu vực C</option>
+                    </select>
+                </div>
+                
+                <div class="modal-buttons-simple">
+                    <button type="submit" class="modal-action-btn modal-add-btn">Thêm sản phẩm</button>
+                    <button type="button" class="modal-action-btn cancel-btn close-button">Hủy bỏ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="home_script.js"></script>
+</body>
+</html>
